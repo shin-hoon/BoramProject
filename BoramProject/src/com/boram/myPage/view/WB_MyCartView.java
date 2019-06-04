@@ -89,30 +89,8 @@ public class WB_MyCartView {
 		JScrollPane sp = new JScrollPane(table);
 		sp.setBounds(14, 0, 676, 625);
 		panel2.add(sp, "Center");
-		// sp.add(table);
-
-		// DefaultTableCellRenderer dcr = new DefaultTableCellRenderer() {
-		// public Component getTableCellRendererComponent(JTable table, Object value,
-		// boolean isselected, boolean hasfocus,
-		// int row, int column) {
-		// JCheckBox chk = new JCheckBox();
-		// chk.setSelected(((Boolean) value).booleanValue());
-		// chk.setHorizontalAlignment(JLabel.CENTER);
-		// return chk;
-		// }
-		// };
-		//
-		// JCheckBox[] chk = new JCheckBox[CList.size()];
-		// table.getColumn("chk").setCellRenderer(dcr);
-		// table.getColumn("chk").setCellEditor(new DefaultCellEditor(chk));
 
 		for (int i = 0; i < CList.size(); i++) {
-
-			// 체크박스 이렇게 넣으면됨?
-			// chk[i]= new JCheckBox();
-			// 사진넣기 다시.
-			// 사진 사이즈 원래 325*430
-			//Object image = new Object();
 			int index = i+1;
 			int cat = CList.get(i).getCategory();
 			String pName = CList.get(i).getProductName();
