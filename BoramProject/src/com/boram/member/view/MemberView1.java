@@ -277,8 +277,8 @@ public class MemberView1 {
 						String address = addressText.getText();
 						String email = emailText.getText();
 
-						if (name == null || id == null || pwd == null || phone == null || address == null) {
-							JOptionPane.showMessageDialog(null, "정보를 모두 입력하세요."); // 하나라도 입력안하고 가입누르면 뜨는 팝업창
+						if (name.equals("") || id.equals("") || pwd.equals("") || phone.equals("") || address.equals("")) {
+							JOptionPane.showMessageDialog(null, "정보를 모두 입력하세요.");// 하나라도 입력안하고 가입누르면 뜨는 팝업창
 
 						} else {
 
