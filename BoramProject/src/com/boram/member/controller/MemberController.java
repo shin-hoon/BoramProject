@@ -15,36 +15,42 @@ public class MemberController {
 	// MyCart ca=new MyCart();
 
 	ArrayList<Member> memberList = md.fileRead();
-	public static Member m ;
+	public static Member m;
 	// md.fileSave(memberList);
-	
-//	{// 초기임시데이터 추가 : 용준
-//		// "name1",950417,"id1","pwd2","01029346330","seoul","email.com"
-//		memberList.add(new Member(1, "1", 1, "1", "1", "1", "1", "1"));
-//		memberList.add(new Member(2, "name1", 950411, "id1", "pwd1", "01029346331", "seoul", "1mail.com"));
-//		memberList.add(new Member(3, "name2", 950412, "id2", "pwd2", "01029346332", "seou1", "2mail.com"));
-//		memberList.add(new Member(4, "name3", 950413, "id3", "pwd3", "01029346333", "seou2", "3mail.com"));
-//		memberList.add(new Member(5, "name4", 950414, "id4", "pwd4", "01029346334", "seou3", "4mail.com"));
-//		memberList.add(new Member(6, "name5", 950415, "id5", "pwd5", "01029346335", "seou4", "5mail.com"));
-//	}
-	
+
+	// {// 초기임시데이터 추가 : 용준
+	// // "name1",950417,"id1","pwd2","01029346330","seoul","email.com"
+	// memberList.add(new Member(1, "1", 1, "1", "1", "1", "1", "1"));
+	// memberList.add(new Member(2, "name1", 950411, "id1", "pwd1", "01029346331",
+	// "seoul", "1mail.com"));
+	// memberList.add(new Member(3, "name2", 950412, "id2", "pwd2", "01029346332",
+	// "seou1", "2mail.com"));
+	// memberList.add(new Member(4, "name3", 950413, "id3", "pwd3", "01029346333",
+	// "seou2", "3mail.com"));
+	// memberList.add(new Member(5, "name4", 950414, "id4", "pwd4", "01029346334",
+	// "seou3", "4mail.com"));
+	// memberList.add(new Member(6, "name5", 950415, "id5", "pwd5", "01029346335",
+	// "seou4", "5mail.com"));
+	// }
+
 	/*
 	 * 회원가입
 	 */
-	public void join(String name, String year, String month, String day, String id, String pwd, String phone, String address, String email) {
+	public void join(String name, String year, String month, String day, String id, String pwd, String phone,
+			String address, String email) {
 
 		// 회원번호 주기
 		int mNo;
 		for (Member m : memberList) {
-			System.out.println( m.getName() + m.getYear() + m.getMonth() + m.getDay() + m.getId() + m.getPwd() + m.getPhone()
-					+ m.getAddress() + m.getEmail()); // mNo로 1씩 증가
-			System.out.println("test : "+m.toString());
+			System.out.println(m.getName() + m.getYear() + m.getMonth() + m.getDay() + m.getId() + m.getPwd()
+					+ m.getPhone() + m.getAddress() + m.getEmail()); // mNo로 1씩 증가
+			System.out.println("test : " + m.toString());
 		}
-		if(memberList.size()==0) {//memberList 초기화 후 새로시작할때 mNo=0으로 변경해주세요.
-			//0번index에 mNo가 1 부터 시작하면 outofbound오류납니다.  
-			mNo=0;
-		}else {
-			mNo=memberList.get(memberList.size()-1).getmNo()+1; //제일마지막번호 +1
+		if (memberList.size() == 0) {// memberList 초기화 후 새로시작할때 mNo=0으로 변경해주세요.
+			// 0번index에 mNo가 1 부터 시작하면 outofbound오류납니다.
+			mNo = 0;
+		} else {
+			mNo = memberList.get(memberList.size() - 1).getmNo() + 1; // 제일마지막번호 +1
 		}
 
 		// 회원추가
@@ -52,18 +58,14 @@ public class MemberController {
 		System.out.println(memberList.size());
 		for (int i = 0; i < memberList.size(); i++) {
 			System.out.println("===============");
-			System.out.println("i : "+i);
+			System.out.println("i : " + i);
 			System.out.println(memberList.get(i));
-			
 		}
-
 		// 저장
 		md.fileSave(memberList);
 	}
 
-	
-	
-	/* 
+	/*
 	 * 로그인
 	 */
 	public Member logIn(String id, String pwd) {
@@ -75,10 +77,10 @@ public class MemberController {
 
 				// memberList.get(i)를 리턴함과동시에 nugu메소드를통해 누가 로그인햇는지 알려줌.
 				m = memberList.get(i);
-				System.out.println("i : "+i);
+				System.out.println("i : " + i);
 				System.out.println(m.toString());
 				System.out.println("성공");
-				
+
 				// 로그인과 동시에 저장해놓앗던 장바구니 불러오기.
 				// ca.loadCart();
 				return m;
@@ -88,7 +90,6 @@ public class MemberController {
 		return null;
 	}
 
-	
 	/*
 	 * 아이디찾기
 	 */
@@ -113,7 +114,6 @@ public class MemberController {
 
 	}
 
-	
 	/*
 	 * 비밀번호찾기
 	 */
@@ -135,11 +135,10 @@ public class MemberController {
 	public Member nugu() {
 		return m;
 	}
-	
-	
-/*
- * 아이디체크
- */
+
+	/*
+	 * 아이디체크
+	 */
 	public int idCheck(JTextField idtext) {
 
 		int result = 0;
@@ -153,17 +152,14 @@ public class MemberController {
 		}
 		return result;
 	}
-	
-	
-	
-	/* 
+
+	/*
 	 * 로그아웃
 	 */
-	public void logOut(){
-		
-		this.m = null; 
-		
-		
+	public void logOut() {
+
+		this.m = null;
+
 	}
 
 }
