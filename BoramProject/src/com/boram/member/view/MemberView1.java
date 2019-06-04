@@ -277,8 +277,8 @@ public class MemberView1 {
 						String address = addressText.getText();
 						String email = emailText.getText();
 
-						if (name == null || id == null || pwd == null || phone == null || address == null) {
-							JOptionPane.showMessageDialog(null, "정보를 모두 입력하세요."); // 하나라도 입력안하고 가입누르면 뜨는 팝업창
+						if (name.equals("") || id.equals("") || pwd.equals("") || phone.equals("") || address.equals("")) {
+							JOptionPane.showMessageDialog(null, "정보를 모두 입력하세요.");// 하나라도 입력안하고 가입누르면 뜨는 팝업창
 
 						} else {
 
@@ -467,9 +467,9 @@ public class MemberView1 {
 				lblIdpwFind.setBounds(133, 55, 288, 54);
 				pwdSearchPanel.add(lblIdpwFind);
 
-				JLabel searchLb = new JLabel("\uC544\uC774\uB514 \uCC3E\uAE30");
+				JLabel searchLb = new JLabel("비밀번호 찾기");
 				searchLb.setFont(new Font("굴림", Font.BOLD, 17));
-				searchLb.setBounds(64, 155, 98, 31);
+				searchLb.setBounds(64, 155, 150, 31);
 				pwdSearchPanel.add(searchLb);
 
 				JLabel nameLb = new JLabel("\uC774\uB984 : ");
@@ -512,7 +512,7 @@ public class MemberView1 {
 						} else {
 							String pwd = mc.searchId(nametext, phonetext);
 							// 찾은 pwd 팝업창뜨기
-							String i = (nametext.getText() + "님의 아이디 : " + pwd);
+							String i = (nametext.getText() + "님의 비밀번호 : " + pwd);
 							JOptionPane.showMessageDialog(null, i);
 
 							// 비밀번호찾기창 끄기
