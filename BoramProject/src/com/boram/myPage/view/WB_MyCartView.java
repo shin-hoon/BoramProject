@@ -173,6 +173,12 @@ public class WB_MyCartView {
 		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 15));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				for(Product i:CList) {
+					i.setPrice(i.getPrice()*(cb1.getSelectedIndex()+1));
+					System.out.println("price : "+i.getPrice());
+					System.out.println(cb1.getSelectedIndex()+1);
+				}
 				ca.cartOrder(cb1.getSelectedIndex()+1);
 				JOptionPane.showMessageDialog(null, "주문되었습니다.","Order Complete!",JOptionPane.DEFAULT_OPTION);
 				MainView.setMainPage(new WB_MyDeliveryView().getMyDeliveryView());
