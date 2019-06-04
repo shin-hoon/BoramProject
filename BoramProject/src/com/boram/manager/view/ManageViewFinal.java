@@ -192,15 +192,6 @@ public class ManageViewFinal {
 		scrollPane.setBounds(92, 76, 562, 438);
 		manageProduct.add(scrollPane);
 
-		/*
-		 * Object[][] o = new Object[size][5]; for (int i = 0; i < o.length; i++) { for
-		 * (int j = 0; j < o[i].length; j++) { switch (j) { case 0: o[i][j] =
-		 * mArr.get(i).getmNo(); break; case 1: o[i][j] = mArr.get(i).getId(); break;
-		 * case 2: o[i][j] = mArr.get(i).getName(); break; case 3: o[i][j] =
-		 * mArr.get(i).getPhone(); break; case 4: o[i][j] = mArr.get(i).getEmail();
-		 * break; default: break; } } }
-		 */
-
 		int size = pArr.size();
 		Object[][] o = new Object[size][6];
 		for (int i = 0; i < o.length; i++) {
@@ -298,13 +289,6 @@ public class ManageViewFinal {
 					a = table.getValueAt(x, 0);
 					String value = String.valueOf(a);
 					b = mc.indexProduct(Integer.parseInt(value));
-//					for (int i = 0; i < pArr.size(); i++) {
-//						if (pArr.get(i).getpNo() == Integer.parseInt(value)) {
-//							b = i;
-//							break;
-//						}
-//					}
-
 					if (b == -1) {
 					} else {
 						Product p = new Product();
@@ -321,7 +305,6 @@ public class ManageViewFinal {
 		});
 
 		delete.addMouseListener(new MouseAdapter() {
-			// 여기부터
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Object a;
@@ -329,12 +312,7 @@ public class ManageViewFinal {
 				try {
 					a = table.getValueAt(table.getSelectedRow(), 0);
 					temp = mc.indexProduct(Integer.parseInt(String.valueOf(a)));
-//					for (int i = 0; i < pArr.size(); i++) {
-//						if (pArr.get(i).getpNo() == (int) a) {
-//							temp = i;
-//							break;
-//						}
-//					}
+
 				} catch (ArrayIndexOutOfBoundsException e2) {
 					temp = -1;
 				} catch (IndexOutOfBoundsException e3) {
@@ -832,22 +810,6 @@ public class ManageViewFinal {
 		explain.setBorder(BorderFactory.createCompoundBorder(lineBorder, emptyBorder));
 
 		insertProduct.add(scrollPane);
-		/*// TextArea 설정 및 추가
-	    // TextArea에 content가 가리키는 문자열을 표시하고 50행, 50열로 설정합니다.      
-	    JTextArea ta = new JTextArea(content, 50, 50);
-	    //행 넘기기 기능 켜기
-	    ta.setLineWrap(true);
-	    //행 넘길 때 행의 마지막 단어가 두행에 걸쳐 나뉘지 않도록 하기
-	    ta.setWrapStyleWord(true);
-	    // TextArea의 테두리선의 색을 검정 두깨를 3px로 설정합니다.
-	    Border lineBorder = BorderFactory.createLineBorder(Color.black, 3);
-	    // 텍스트와 TextArea 경계 사이에 여백을 두기 위해서 emptyBorder를 생성합니다. 
-	    Border emptyBorder = BorderFactory.createEmptyBorder(7, 7, 7, 7);
-	    //TextArea에 lineBorder(검정테두리), emptyBorder(여백)로 구성된 복합 경계선을 설정합니다.
-	    ta.setBorder(BorderFactory.createCompoundBorder(lineBorder, emptyBorder));
-	    // TextArea에 스크롤 기능을 추가한 후 Panel안에 집어 넣습니다.
-	    upperPanel.add(new JScrollPane(ta));*/
-		
 		
 		String[] sArr = { "free" };
 		JComboBox<String> size = new JComboBox<String>(sArr);
@@ -915,7 +877,7 @@ public class ManageViewFinal {
 		jfc.setFileFilter(new FileNameExtensionFilter("png file", "png"));
 		jfc.setFileFilter(new FileNameExtensionFilter("JPEG file", "jpg", "jpeg"));
 
-		jfc.setMultiSelectionEnabled(false); // 다중선택불가
+		jfc.setMultiSelectionEnabled(false);
 
 		lastPage.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1270,10 +1232,7 @@ public class ManageViewFinal {
 		searchMember.add(scrollPane);
 		scrollPane.setViewportView(table_1);
 		table_1.setShowGrid(true);
-		// table_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		// table_1.setColumnSelectionAllowed(true);
 		table_1.setRowSelectionAllowed(true);
-		// table_1.setCellSelectionEnabled(false);
 		table_1.setBorder(UIManager.getBorder("ComboBox.border"));
 
 		
@@ -1296,10 +1255,6 @@ public class ManageViewFinal {
 		lastPage.setFont(new Font("굴림", Font.PLAIN, 15));
 		searchMember.add(lastPage);
 
-		/*
-		 * JButton update = new JButton("\uC218\uC815"); update.setBounds(268, 517, 125,
-		 * 29); searchMember.add(update);
-		 */
 		searchMember.setVisible(true);
 
 		lastPage.addMouseListener(new MouseAdapter() {
